@@ -70,6 +70,37 @@ public class ProductoData {
             
             }
             
+            ps.close();
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
+
+        }
+    }
+    
+    public void ModificarProducto(int id){
+    
+         String sql = "UPDATE producto WHERE idProducto = ?";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            
+            int exito = ps.executeUpdate();
+            
+            if(exito >=1){
+                
+               JOptionPane.showMessageDialog(null, "Producto modificado con exito"); 
+               
+            }else{
+                
+                JOptionPane.showMessageDialog(null, "No existe ese producto");
+            }
+            
+            ps.close();
+            
         } catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
