@@ -12,7 +12,11 @@ public class Restaurante {
         ProductoData pd = new ProductoData();
 //        Producto pro = new Producto("Hamburguesa simple" , 1000.00 , true);
 //        pd.guardarProducto(pro);
-        pd.eliminarProducto(3);
-    }
+//        pd.eliminarProducto(3);
     
+    
+    
+    
+    
+    } 
 }

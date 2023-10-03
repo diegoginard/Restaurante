@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
@@ -108,5 +110,37 @@ public class ProductoData {
         }
     }
     
-    
+    public List<Producto> listarAlumnos(String buscar) {
+
+        List<Producto> productos = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT * FROM Producto WHERE idProducto "
+                    + "LIKE '%\"+buscar+\"%' OR nombre LIKE '%\"+buscar+\"%' ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                Producto prod = new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombre(rs.getString("nombre"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setEstado(rs.getBoolean("estado"));
+                productos.add(prod);
+            
+            }
+            
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());
+
+        }
+
+        return productos;
+
+    }
 }
