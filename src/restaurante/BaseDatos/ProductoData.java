@@ -49,4 +49,32 @@ public class ProductoData {
             
         }
     }
+    
+    public void eliminarProducto(int id) {
+
+        String sql = "DELETE FROM producto WHERE idProducto = ?";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int exito = ps.executeUpdate();
+            
+            if(exito >= 1){
+                
+            JOptionPane.showMessageDialog(null, "Producto Eliminado");
+            
+            }else{
+                
+                JOptionPane.showMessageDialog(null, "No se encontro el producto");
+            
+            }
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
+
+        }
+    }
+
 }
