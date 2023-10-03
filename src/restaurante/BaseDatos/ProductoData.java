@@ -116,27 +116,28 @@ public class ProductoData {
         
         try {
             
-            String sql = "SELECT * FROM Producto WHERE idProducto "
-                    + "LIKE '%\"+buscar+\"%' OR nombre LIKE '%\"+buscar+\"%' ";
+            String sql = "SELECT * FROM Producto WHERE idProducto LIKE ? OR nombre LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(2, "%" + buscar + "%"); // Configura el segundo parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
-            
+
             while (rs.next()) {
-                
+
                 Producto prod = new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombre(rs.getString("nombre"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setEstado(rs.getBoolean("estado"));
                 productos.add(prod);
-            
+
             }
-            
+
             ps.close();
 
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Productos" + ex.getMessage());
 
         }
 
