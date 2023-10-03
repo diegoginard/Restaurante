@@ -1,8 +1,8 @@
 
 package restaurante;
 
-import BaseDatos.ProductoData;
-import entidades.Producto;
+import restaurante.BaseDatos.ProductoData;
+import restaurante.Entidades.Producto;
 
 
 public class Restaurante {
