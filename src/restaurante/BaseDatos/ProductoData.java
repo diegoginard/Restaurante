@@ -81,7 +81,7 @@ public class ProductoData {
     
     public void ModificarProducto(int id){
     
-         String sql = "UPDATE producto WHERE idProducto = ?";
+        String sql = "UPDATE producto WHERE idProducto = ?";
 
         try {
 
@@ -107,5 +107,6 @@ public class ProductoData {
 
         }
     }
-
+    
+    
 }
