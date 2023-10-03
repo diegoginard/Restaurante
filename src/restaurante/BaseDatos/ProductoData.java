@@ -37,7 +37,7 @@ public class ProductoData {
 
                pro.setIdProducto(rs.getInt(1));
                 
-                JOptionPane.showMessageDialog(null, "Producto Guardado ");
+               JOptionPane.showMessageDialog(null, "Producto Guardado ");
             
             }
             
@@ -46,6 +46,7 @@ public class ProductoData {
         } catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto " + ex.getMessage());
+            
         }
     }
 }
