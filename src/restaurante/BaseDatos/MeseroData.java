@@ -2,7 +2,7 @@
 package restaurante.BaseDatos;
 
 import java.sql.*;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import restaurante.Entidades.Mesero;
 
 public class MeseroData {
