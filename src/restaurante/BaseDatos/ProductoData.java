@@ -2,13 +2,8 @@
 package restaurante.BaseDatos;
 
 import restaurante.Entidades.Producto;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 
@@ -96,7 +91,7 @@ public class ProductoData {
             
             int exito = ps.executeUpdate();
             
-            if(exito >=1){
+            if(exito >= 1){
                 
                JOptionPane.showMessageDialog(null, "Producto modificado con exito"); 
                
