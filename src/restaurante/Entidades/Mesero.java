@@ -6,24 +6,39 @@ public class Mesero {
     private int idMesero;
     private Reserva reserva;
     private String nombre;
+    private String apellido;
     private Pedido pedido;
     private boolean estado;
 
-    public Mesero(int idMesero, Reserva reserva, String nombre, Pedido pedido, boolean estado) {
+    public Mesero(int idMesero, Reserva reserva, String nombre, String apellido, Pedido pedido, boolean estado) {
         this.idMesero = idMesero;
         this.reserva = reserva;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.pedido = pedido;
         this.estado = estado;
     }
 
-    public Mesero(Reserva reserva, String nombre, Pedido pedido, boolean estado) {
-        this.reserva = reserva;
+    public Mesero(String nombre, String apellido) {
         this.nombre = nombre;
-        this.pedido = pedido;
-        this.estado = estado;
+        this.apellido = apellido;  
     }
-    
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
     
     public Mesero(){}
 
