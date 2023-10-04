@@ -33,7 +33,7 @@ public class MeseroData {
 
                me.setIdMesero(rs.getInt(1));
                 
-               JOptionPane.showMessageDialog(null, "Mesero dado de alta ");
+               JOptionPane.showMessageDialog(null, "Mesero agregado");
             
             }
             
@@ -44,7 +44,35 @@ public class MeseroData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Meseros " + ex.getMessage());
             
         }
+    }
+    
+    public void EliminarMesero(int id){
+    
+    String sql = "DELETE FROM meseros WHERE idMesero = ?";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int exito = ps.executeUpdate();
+            
+            if(exito >= 1){
+                
+            JOptionPane.showMessageDialog(null, "Mesero Eliminado");
+            
+            }else{
+                
+                JOptionPane.showMessageDialog(null, "No exixte el Mesero");
+            
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null, " Error leer la tabla Meseros" + ex.getMessage());
+
+        }
     
     }
-     
 }
