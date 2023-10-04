@@ -110,7 +110,7 @@ public class ProductoData {
         }
     }
     
-    public List<Producto> listarAlumnos(String buscar) {
+    public List<Producto> listarProductos(String buscar) {
 
         List<Producto> productos = new ArrayList<>();
         
