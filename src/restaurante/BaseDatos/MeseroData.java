@@ -73,6 +73,7 @@ public class MeseroData {
             JOptionPane.showMessageDialog(null, " Error leer la tabla Meseros" + ex.getMessage());
 
         }
-    
     }
+    
+    
 }
