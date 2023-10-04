@@ -22,7 +22,7 @@ public class ProductoData {
         
     }
      
-    public void guardarProducto( Producto pro){
+    public void guardarProducto(Producto pro){
         
         String sql="INSERT INTO producto(nombre, precio, estado) VALUES (?,?,?)"; 
       
@@ -110,7 +110,7 @@ public class ProductoData {
         }
     }
     
-    public List<Producto> listarProductos(String buscar) {
+    public List<Producto> BuscarProductos(String buscar) {
 
         List<Producto> productos = new ArrayList<>();
         
