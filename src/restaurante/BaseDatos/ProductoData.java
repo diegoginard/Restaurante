@@ -22,11 +22,15 @@ public class ProductoData {
         
     }
      
+    List<Producto> productos = new ArrayList<>();
+    Producto prod = new Producto();
+    
     public void guardarProducto(Producto pro){
         
         String sql="INSERT INTO producto(nombre, precio, estado) VALUES (?,?,?)"; 
       
         try {
+            
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             ps.setString(1, pro.getNombre());
@@ -111,8 +115,6 @@ public class ProductoData {
     }
     
     public List<Producto> BuscarProductos(String buscar) {
-
-        List<Producto> productos = new ArrayList<>();
         
         try {
             
@@ -143,5 +145,35 @@ public class ProductoData {
 
         return productos;
 
+    }
+    
+    public List<Producto> listarProductos(){
+        
+        try {
+            
+            String sql = "SELECT * FROM alumno WHERE estado = 1 ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombre(rs.getString("nombre"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setEstado(rs.getBoolean("estado"));
+                productos.add(prod);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto" + ex.getMessage());
+
+        }
+
+        return productos;
+    
     }
 }
