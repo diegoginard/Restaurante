@@ -1,33 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package restaurante.Entidades;
 
-/**
- *
- * @author Hogar
- */
-public class Mesero {
-    
+public class Mesero {  
     
     private int idMesero;
+    private Reserva reserva;
     private String nombre;
     private Pedido pedido;
     private boolean estado;
 
-    public Mesero(int idMesero, String nombre, String apellido, Pedido pedido, boolean estado) {
+    public Mesero(int idMesero, Reserva reserva, String nombre, Pedido pedido, boolean estado) {
         this.idMesero = idMesero;
+        this.reserva = reserva;
         this.nombre = nombre;
         this.pedido = pedido;
         this.estado = estado;
     }
 
-    public Mesero(String nombre, String apellido, Pedido pedido, boolean estado) {
+    public Mesero(Reserva reserva, String nombre, Pedido pedido, boolean estado) {
+        this.reserva = reserva;
         this.nombre = nombre;
         this.pedido = pedido;
         this.estado = estado;
     }
+    
     
     public Mesero(){}
 
@@ -62,16 +58,9 @@ public class Mesero {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
-
-   
    
    public String ToString(){
        return "nombre: "+ nombre  ;
        
    }
-     
-        
-        
-    
 }

@@ -14,9 +14,5 @@ public class Restaurante {
 //        pd.guardarProducto(pro);
 //        pd.eliminarProducto(3);
     
-    
-    
-    
-    
     } 
 }
