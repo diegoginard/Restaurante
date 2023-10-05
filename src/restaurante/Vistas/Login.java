@@ -4,6 +4,8 @@
  */
 package restaurante.Vistas;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import sun.security.util.Password;
 
@@ -19,6 +21,16 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        setIconImage(getIconImage());
+    }
+    
+    
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("restaurante/Recursos/icons8_lock_2_256.png"));
+    
+        return retValue;
     }
 
     /**
