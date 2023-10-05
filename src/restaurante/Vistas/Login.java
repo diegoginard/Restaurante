@@ -55,6 +55,11 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbEntrar.setText("Entrar");
+        jbEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbEntrarMouseClicked(evt);
+            }
+        });
         jPanel1.add(jbEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 212, 80, 40));
         jPanel1.add(jpContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 180, -1));
 
@@ -84,6 +89,28 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbEntrarMouseClicked
+       
+        String Usuario ="admin";
+        String Contraseña="admin";
+        
+        String Pass=new String(jpContraseña.getPassword());  
+        
+        
+        if (jtUsuario.getText().equals(Usuario) && jpContraseña.getText().equals(Contraseña)){
+            GestionRestaurante gn=new GestionRestaurante();
+            gn.setVisible(true);
+            dispose();
+            
+            
+        }else {
+            JOptionPane.showMessageDialog(this, "Erro al Entrar Usuario y/o Contraseña Incorrecta");
+        }
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbEntrarMouseClicked
 
     /**
      * @param args the command line arguments
