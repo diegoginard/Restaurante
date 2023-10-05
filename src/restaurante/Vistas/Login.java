@@ -96,18 +96,20 @@ public class Login extends javax.swing.JFrame {
         String Contraseña="admin";
         
         String Pass=new String(jpContraseña.getPassword());  
-        
-        
-        if (jtUsuario.getText().equals(Usuario) && jpContraseña.getText().equals(Contraseña)){
-            GestionRestaurante gn=new GestionRestaurante();
+
+        if (jtUsuario.getText().isEmpty() || jpContraseña.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No Se Permiten Casillas Vacias");
+
+            return;
+        } else if (jtUsuario.getText().equals(Usuario) && jpContraseña.getText().equals(Contraseña)) {
+            GestionRestaurante gn = new GestionRestaurante();
             gn.setVisible(true);
             dispose();
-            
-            
-        }else {
+
+        } else {
             JOptionPane.showMessageDialog(this, "Error al Entrar Usuario y/o Contraseña Incorrecta");
         }
-        
+
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jbEntrarMouseClicked
