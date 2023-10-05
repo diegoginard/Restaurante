@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
             
             
         }else {
-            JOptionPane.showMessageDialog(this, "Erro al Entrar Usuario y/o Contraseña Incorrecta");
+            JOptionPane.showMessageDialog(this, "Error al Entrar Usuario y/o Contraseña Incorrecta");
         }
         
         
