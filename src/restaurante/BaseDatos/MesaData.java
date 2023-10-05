@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import restaurante.Entidades.Mesa;
 
@@ -18,20 +16,16 @@ public class MesaData {
     private Connection con = null;
     
     public MesaData (){
+        
         con = Conexion.getConexion();
+        
     }
     
     List<Mesa> mesa=new ArrayList<>();
     Mesa mesas = new Mesa();
-    //public class Mesa {
-//    private int idMesa;
-//    private Reserva reserva;
-//    private Pedido pedido;
-//    private int capacidad;
-//    private boolean estado;
-
-    
-    public void guardarMesa(Mesa mesaP){
+   
+    public void GuardarMesa(Mesa mesaP){
+        
         String sql=" INSER INTO mesa(numero ,capacidad ,estado)VALUES (?,?,?)";
         
         try {
@@ -49,19 +43,14 @@ public class MesaData {
                 JOptionPane.showMessageDialog(null, " Producto Guardado ");
                 
             }
-            
-       
+
             ps.close();
-            
-            
-            
+      
         } catch (SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "Error al Actualizar Tabla de Mesas "+ex.getMessage());
 
-        }
-       
-        
+        } 
         
     }
 
